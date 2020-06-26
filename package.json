@@ -1,19 +1,20 @@
 {
-  "name": "07-webserver",
-  "version": "1.0.0",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "boby": "^1.0.0",
-    "body-parser": "^1.19.0",
-    "express": "^4.17.1",
-    "parser": "^0.1.4"
-  },
-  "devDependencies": {},
-  "description": ""
+    "name": "07-webserver",
+    "version": "1.0.0",
+    "main": "server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server/server.js"
+
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "boby": "^1.0.0",
+        "body-parser": "^1.19.0",
+        "express": "^4.17.1",
+        "parser": "^0.1.4"
+    },
+    "devDependencies": {},
+    "description": ""
 }
