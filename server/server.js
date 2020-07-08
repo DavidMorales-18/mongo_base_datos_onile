@@ -1,16 +1,8 @@
-/* ############################################################3
-################################################################## */
-
-
-
-
-
-
-
 require('./config/config')
 const express = require('express');
 const app = express(); //objeto app de express
 const bodyParser = require('body-parser') //
+const mongoose = require('mongoose'); //libreria 
 
 
 // parse application/x-www-form-urlencoded
@@ -59,6 +51,15 @@ app.put('/usuario/:id', (req, res) => { //actualizar un usuario pero debe de ir 
 app.delete('/usuario', (req, res) => {
     res.json("delete Usuario");
 });
+
+/* CONECCION CON LA BASE DE DATOS  */
+mongoose.connect('mongodb://localhost:27017/cafe', (err, res) => {
+    if (err) throw err;
+    console.log('Base de datos ONLINE !!!');
+
+
+});
+
 
 app.listen(process.env.PORT, () => { //Escuchara en el puerto 3000
     console.log("Escuchando en el puerto", process.env.PORT);
