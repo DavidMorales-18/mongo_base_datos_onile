@@ -9,4 +9,28 @@ process.env.PORT = process.env.PORT || 3000; //No sabes mos que puerto va asigna
 
 
 
-/* Vamos a instalar: mongoose */
+/* Vamos a instalar: mongoose 
+
+mongodb+srv://<username>:<password>@cafe.jagyy.mongodb.net/test
+*/
+
+/* 
+==================================================
+ENTORNO
+==================================================
+*/
+process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
+
+/* 
+==================================================
+BASE DE DATOS
+==================================================
+*/
+let urlDB;
+
+if (process.env.NODE_ENV === 'dev') {
+    urlDB = 'mongodb://localhost:27017/cafe'
+} else {
+    urlDB = 'mongodb+srv://cafe_user:IZHJooql1396@cafe.jagyy.mongodb.net/test'
+}
+process.env.URLDB = urlDB;

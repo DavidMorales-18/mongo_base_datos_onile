@@ -12,53 +12,18 @@ app.use(bodyParser.urlencoded({ extended: false })) // capa intemedia entre el s
 // parse application/json
 app.use(bodyParser.json()) // 
 
+//incluir rutas de / usuario
+app.use(require('./routes/usuario'))
 
 
-/* app.get('/',(req,res)=>{
-    res.send('Hola Mundo ')//vamso a mandar un hola mundo 
-}) */
+/* CONECCION CON LA BASE DE DATOS MONGODB  */
+mongoose.connect(process.env.URLDB, { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true },
+    (err, res) => {
+        if (err) throw err;
+        console.log('Base de datos ONLINE !!!');
 
-app.get('/usuario', (req, res) => { // peticion a la raiz --> peticiones get 
-    res.json("get Usuario"); // El json es el que domina 
-    //obtener un servicion en la base de datos 
-});
 
-app.post('/usuario', (req, res) => { //peticiones post
-    let body = req.body //cuerpo de la peticion
-    if (body.nombre === undefined) {
-        res.status(400).json({
-            ok: false,
-            mensaje: 'El nombre es necesario'
-        });
-    } else {
-        res.json({ // una respuesta --> y envio un objeto body
-            persona: body
-
-        });
-
-    }
-    //res.json("post Usuario");
-});
-
-app.put('/usuario/:id', (req, res) => { //actualizar un usuario pero debe de ir con el id
-    //res.json("put Usiario")
-    let id = req.params.id; //llega a travez de la peticion del id 
-    res.json({ //una archivo json 
-        id
     });
-});
-
-app.delete('/usuario', (req, res) => {
-    res.json("delete Usuario");
-});
-
-/* CONECCION CON LA BASE DE DATOS  */
-mongoose.connect('mongodb://localhost:27017/cafe', (err, res) => {
-    if (err) throw err;
-    console.log('Base de datos ONLINE !!!');
-
-
-});
 
 
 app.listen(process.env.PORT, () => { //Escuchara en el puerto 3000
