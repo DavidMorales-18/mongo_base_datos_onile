@@ -19,7 +19,7 @@ mongodb+srv://<username>:<password>@cafe.jagyy.mongodb.net/test
 ENTORNO
 ==================================================
 */
-process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
+process.env.NODE_ENV = process.env.NODE_ENV || 'dev'
 
 /* 
 ==================================================
@@ -31,6 +31,6 @@ let urlDB;
 if (process.env.NODE_ENV === 'dev') {
     urlDB = 'mongodb://localhost:27017/cafe'
 } else {
-    urlDB = 'mongodb+srv://cafe_user:IZHJooql1396@cafe.jagyy.mongodb.net/test'
+    urlDB = 'mongodb+srv://cafe_user:IZHJooql1396@cafe.jagyy.mongodb.net/cafe'
 }
 process.env.URLDB = urlDB;
